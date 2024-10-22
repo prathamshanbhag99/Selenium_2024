@@ -1,0 +1,412 @@
+{
+  "id": "3cd057bb-4e97-4983-ad5a-869ffcc34630",
+  "version": "2.0",
+  "name": "store",
+  "url": "https://letcode.in/alert",
+  "tests": [{
+    "id": "6b9f2bf7-ee6d-4f32-bafb-1f8a785a2f2f",
+    "name": "TC_1",
+    "commands": [{
+      "id": "9996322c-64e6-4a58-b595-c2221383c936",
+      "comment": "",
+      "command": "open",
+      "target": "https://demo.opencart.com/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bcb1eaac-be88-436a-b0b8-bd537d1f0899",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x688",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1bd7435d-64af-4d34-bed4-a7f22adf82fb",
+      "comment": "",
+      "command": "store",
+      "target": "prathamshanbhag99_111@gmail.com",
+      "targets": [],
+      "value": "username"
+    }, {
+      "id": "ad27d545-6424-4f64-b9cf-78e43ff6fbf7",
+      "comment": "",
+      "command": "store",
+      "target": "Pratham@2002",
+      "targets": [],
+      "value": "password"
+    }, {
+      "id": "dfaeaed3-6015-4ec2-a469-56dc2b41c0e3",
+      "comment": "",
+      "command": "click",
+      "target": "css=.show > .d-none",
+      "targets": [
+        ["css=.show > .d-none", "css:finder"],
+        ["xpath=//nav[@id='top']/div/div[2]/ul/li[2]/div/a/span", "xpath:idRelative"],
+        ["xpath=//li[2]/div/a/span", "xpath:position"],
+        ["xpath=//span[contains(.,'My Account')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7925c37c-ec13-4ac1-8a8e-54d76f69f4d7",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Login",
+      "targets": [
+        ["linkText=Login", "linkText"],
+        ["css=.dropdown-menu-right > li:nth-child(2) > .dropdown-item", "css:finder"],
+        ["xpath=//a[contains(text(),'Login')]", "xpath:link"],
+        ["xpath=//nav[@id='top']/div/div[2]/ul/li[2]/div/ul/li[2]/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'https://demo.opencart.com/en-gb?route=account/login')]", "xpath:href"],
+        ["xpath=//li[2]/div/ul/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "af817810-b611-442d-bad6-49516eed458e",
+      "comment": "",
+      "command": "click",
+      "target": "id=input-email",
+      "targets": [
+        ["id=input-email", "id"],
+        ["name=email", "name"],
+        ["css=#input-email", "css:finder"],
+        ["xpath=//input[@id='input-email']", "xpath:attributes"],
+        ["xpath=//form[@id='form-login']/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e493c21a-aca8-45c1-a740-1c24e9c3f636",
+      "comment": "",
+      "command": "type",
+      "target": "id=input-email",
+      "targets": [
+        ["id=input-email", "id"],
+        ["name=email", "name"],
+        ["css=#input-email", "css:finder"],
+        ["xpath=//input[@id='input-email']", "xpath:attributes"],
+        ["xpath=//form[@id='form-login']/div/input", "xpath:idRelative"],
+        ["xpath=//form/div/input", "xpath:position"]
+      ],
+      "value": "${username}"
+    }, {
+      "id": "e3ad3cc0-e873-442b-bfe2-108a2ce43320",
+      "comment": "",
+      "command": "click",
+      "target": "id=input-password",
+      "targets": [
+        ["id=input-password", "id"],
+        ["name=password", "name"],
+        ["css=#input-password", "css:finder"],
+        ["xpath=//input[@id='input-password']", "xpath:attributes"],
+        ["xpath=//form[@id='form-login']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbbb703c-173c-4900-8ea3-c1a668d028e5",
+      "comment": "",
+      "command": "type",
+      "target": "id=input-password",
+      "targets": [
+        ["id=input-password", "id"],
+        ["name=password", "name"],
+        ["css=#input-password", "css:finder"],
+        ["xpath=//input[@id='input-password']", "xpath:attributes"],
+        ["xpath=//form[@id='form-login']/div[2]/input", "xpath:idRelative"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "${password}"
+    }, {
+      "id": "10a97d0a-b3ba-40c0-bf84-d528726c42cb",
+      "comment": "",
+      "command": "storeText",
+      "target": "css=.text-end:nth-child(5) > .btn",
+      "targets": [
+        ["css=.text-end:nth-child(5) > .btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='form-login']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": "logintext"
+    }, {
+      "id": "8b7114b7-05a5-4d33-8657-f9de33d30bbc",
+      "comment": "",
+      "command": "echo",
+      "target": "${logintext}",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "01f1d762-2fff-4ee4-896b-ff9b5c76ffe7",
+      "comment": "",
+      "command": "click",
+      "target": "css=.text-end:nth-child(5) > .btn",
+      "targets": [
+        ["css=.text-end:nth-child(5) > .btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='form-login']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8d2ec059-ee98-46f8-85db-35006de5a98f",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "css=.text-end:nth-child(5) > .btn",
+      "targets": [
+        ["css=.text-end:nth-child(5) > .btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='form-login']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Login')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0eb32392-95a1-494d-923d-57c957c558e9",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "css=.text-end:nth-child(5) > .btn",
+      "targets": [
+        ["css=.text-end:nth-child(5) > .btn", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//form[@id='form-login']/div[3]/button", "xpath:idRelative"],
+        ["xpath=//div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3667f24c-ba7a-4134-9d7f-1b0c05b87e05",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Logout",
+      "targets": [
+        ["linkText=Logout", "linkText"],
+        ["css=.list-group-item:nth-child(13)", "css:finder"],
+        ["xpath=(//a[contains(text(),'Logout')])[2]", "xpath:link"],
+        ["xpath=//aside[@id='column-right']/div/a[13]", "xpath:idRelative"],
+        ["xpath=(//a[contains(@href, 'https://demo.opencart.com/en-gb?route=account/logout')])[2]", "xpath:href"],
+        ["xpath=//a[13]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "42fa27dd-1a80-4459-8bf4-ce21d294aeab",
+    "name": "TC_Allert",
+    "commands": [{
+      "id": "49b7541b-1ef4-4094-ac90-7b4e886aec09",
+      "comment": "",
+      "command": "open",
+      "target": "https://mail.rediff.com/cgi-bin/login.cgi",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "55a49795-dd66-4de7-9b2d-445dd11f0e9a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x688",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5af71df3-11cb-48ef-8fcf-790f7a500383",
+      "comment": "",
+      "command": "click",
+      "target": "id=login1",
+      "targets": [
+        ["id=login1", "id"],
+        ["name=login", "name"],
+        ["css=#login1", "css:finder"],
+        ["xpath=//input[@id='login1']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "752cfa54-8c5e-42b9-b97b-1d904f4ef2fe",
+      "comment": "",
+      "command": "type",
+      "target": "id=login1",
+      "targets": [
+        ["id=login1", "id"],
+        ["name=login", "name"],
+        ["css=#login1", "css:finder"],
+        ["xpath=//input[@id='login1']", "xpath:attributes"],
+        ["xpath=//div[2]/input", "xpath:position"]
+      ],
+      "value": "jhfihfjrofjrifrif"
+    }, {
+      "id": "5f4493d3-3626-478b-96b0-9da8b4bb208d",
+      "comment": "",
+      "command": "click",
+      "target": "name=proceed",
+      "targets": [
+        ["name=proceed", "name"],
+        ["css=.signinbtn", "css:finder"],
+        ["xpath=//input[@name='proceed']", "xpath:attributes"],
+        ["xpath=//div/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "58997cc6-454b-40a6-b65a-57b211880c16",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Please enter your password",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "8ec1a459-edb6-4ee0-ba9e-437629d7cce0",
+    "name": "TC2_Allert",
+    "commands": [{
+      "id": "90603b2a-7ccb-4c3f-921b-2252b7fc14ea",
+      "comment": "",
+      "command": "open",
+      "target": "https://letcode.in/alert",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "50d069ad-c8dd-404f-bb9e-db204433e871",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1296x688",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bf27c2a4-6366-4703-ade7-e7818266870b",
+      "comment": "",
+      "command": "click",
+      "target": "id=accept",
+      "targets": [
+        ["id=accept", "id"],
+        ["css=#accept", "css:finder"],
+        ["xpath=//button[@id='accept']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Simple Alert')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3d29c28-075c-470e-ad04-4fa1693d5379",
+      "comment": "",
+      "command": "assertAlert",
+      "target": "Hey! Welcome to LetCode",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0a329e68-87fb-46b9-ae0f-9f63bfa03b30",
+      "comment": "",
+      "command": "chooseOkOnNextConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c02ad888-29db-4b7e-8e10-0780b7ede988",
+      "comment": "",
+      "command": "click",
+      "target": "id=confirm",
+      "targets": [
+        ["id=confirm", "id"],
+        ["css=#confirm", "css:finder"],
+        ["xpath=//button[@id='confirm']", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Confirm Alert')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "585a33b8-0034-4b9b-b425-657200838959",
+      "comment": "",
+      "command": "assertConfirmation",
+      "target": "Are you happy with LetCode?",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d964d3d7-f336-47f3-929b-46e4f8dfaa51",
+      "comment": "",
+      "command": "webdriverChooseOkOnVisibleConfirmation",
+      "target": "",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b930fe00-56c5-45e1-8b76-09374df3c6ad",
+      "comment": "",
+      "command": "click",
+      "target": "id=prompt",
+      "targets": [
+        ["id=prompt", "id"],
+        ["css=#prompt", "css:finder"],
+        ["xpath=//button[@id='prompt']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prompt Alert')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "182c0abb-f069-40c2-88ec-b014a74cabd1",
+      "comment": "",
+      "command": "mouseOver",
+      "target": "id=prompt",
+      "targets": [
+        ["id=prompt", "id"],
+        ["css=#prompt", "css:finder"],
+        ["xpath=//button[@id='prompt']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prompt Alert')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "dbc6c524-5581-49b4-a50c-ec76f80cb7db",
+      "comment": "",
+      "command": "answerOnNextPrompt",
+      "target": "Pratham",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8adf096a-3732-4c02-803a-85db9e68046d",
+      "comment": "",
+      "command": "mouseOut",
+      "target": "id=prompt",
+      "targets": [
+        ["id=prompt", "id"],
+        ["css=#prompt", "css:finder"],
+        ["xpath=//button[@id='prompt']", "xpath:attributes"],
+        ["xpath=//div[3]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Prompt Alert')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "69f4eb5d-2b40-4b5a-907e-c2bd783c78c9",
+      "comment": "",
+      "command": "assertPrompt",
+      "target": "Enter your name",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "e3b62d46-370b-4e67-8c41-23505fede90d",
+      "comment": "",
+      "command": "webdriverAnswerOnVisiblePrompt",
+      "target": "Pratham",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7d5fcbcd-7c7e-47a6-b0e3-5b85000f7695",
+      "comment": "",
+      "command": "click",
+      "target": "id=modern",
+      "targets": [
+        ["id=modern", "id"],
+        ["css=#modern", "css:finder"],
+        ["xpath=//button[@id='modern']", "xpath:attributes"],
+        ["xpath=//div[4]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Modern Alert')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }],
+  "suites": [{
+    "id": "aa36f6a6-bfc0-4328-b15a-ddc2304933f5",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["https://demo.opencart.com/", "https://mail.rediff.com/cgi-bin/login.cgi", "https://letcode.in/alert"],
+  "plugins": []
+}
