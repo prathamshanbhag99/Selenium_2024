@@ -15,31 +15,19 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Lab_6 {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		// TODO Auto-generated method stub
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://www.snapdeal.com/");
 		
-		//Thread.sleep(10000);
 		
-		//driver.findElement(By.linkText("My Account")).click();
-		//Thread.sleep(2000);
-		//driver.findElement(By.linkText("My Account")).click();
-		//driver.findElement(By.linkText("Login")).click();
-		
-		//WebElement email = driver.findElement(By.name("email"));		 
-		//email.sendKeys("prathamshanbhag99_111@gmail.com");
-		//email.sendKeys(Keys.TAB);
 		
 		driver.findElement(By.id("inputValEnter")).sendKeys("A1 MEN WATCHES Men Sunglasses Combo");
 		
 		driver.findElement(By.xpath("//*[@id=\"sdHeader\"]/div[4]/div[2]/div/div[2]/button/span")).click();
 		
-		
-		//driver.findElement(By.xpath("//*[@id=\"content_wrapper\"]/div[7]/div[5]/div[3]/div[1]/div/div[2]/div/span")).click();
-		//driver.findElement(By.xpath("//*[@id=\"content_wrapper\"]/div[7]/div[5]/div[3]/div[1]/div/div[2]/ul/li[4]")).click();
-
+	
 		driver.findElement(By.xpath("//*[@id=\"654909822552\"]/div[1]/a/picture/img")).click();
 		
         List<String> wh=new ArrayList(driver.getWindowHandles());
@@ -66,11 +54,37 @@ public class Lab_6 {
 		
 		System.out.println(spcs.getText());
 		driver.findElement(By.id("add-cart-button-id")).click();
+		System.out.println("Item Added to the cart!");
 		
+		driver.findElement(By.xpath("//div[@class='btn btn-theme-secondary open-cart']")).click();
+		
+	JavascriptExecutor js1 = (JavascriptExecutor) driver;
+	js1.executeScript("alert('Do you want to make the Quantity as 3 ?')");
+		
+        Thread.sleep(5000);
+		
+		driver.findElement(By.xpath("/html/body/div[3]/div[2]/div[1]/div/div[5]/ul/li/div[5]/div")).click();
+		
+	
+		
+        driver.findElement(By.cssSelector("li[rel='3'].undefined")).click();
 
+        
+       
+		System.out.println("Increased the quantity of the product to 3");
 		
 		
 		
+		JavascriptExecutor js11 = (JavascriptExecutor) driver;js11.executeScript("alert('Remove product from cart?')");
+		
+        Thread.sleep(5000);
+        
+        driver.findElement(By.xpath("//span[@class='remove-item-shortlist']")).click();
+        
+        System.out.println("Cart is Empty");
+        
+        
+        
 		
 
 	}
