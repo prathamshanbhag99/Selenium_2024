@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Suite">
-  <test thread-count="5" name="Test">
+  
+
+
+  <!-- Second test for Pac1.TC_TestNG -->
+  <test name="Pac1 Test" order="2">
+    <classes>
+      <class name="Pac1.TC_TestNG"/>
+    </classes>
+  </test>
+  
+    <!-- First test for Selenium_Lab.Lab_6_TestNG -->
+  <test name="Selenium Test" order="1">
     <classes>
       <class name="Selenium_Lab.Lab_6_TestNG"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test>
+
+</suite>

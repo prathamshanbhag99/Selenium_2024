@@ -12,6 +12,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
+import junit.framework.Assert;
 
 public class Lab_6_TestNG {
     WebDriver driver;
@@ -28,12 +29,23 @@ public class Lab_6_TestNG {
     @Test(dataProvider = "productData")
     public void testProductSelectionAndCartModification(String productName) throws InterruptedException {
     	
+
         // Search for the product using the product name from the DataProvider
         driver.findElement(By.id("inputValEnter")).sendKeys(productName);
         driver.findElement(By.xpath("//*[@id=\"sdHeader\"]/div[4]/div[2]/div/div[2]/button/span")).click();
 
-        //product
-        driver.findElement(By.xpath("//*[@id=\"654909822552\"]/div[1]/a/picture/img")).click();
+        
+        if(driver.findElement(By.xpath("//*[@id=\"654909822552\"]/div[1]/a/picture/img")).isDisplayed())
+        {
+        	//product
+            driver.findElement(By.xpath("//*[@id=\"654909822552\"]/div[1]/a/picture/img")).click();
+            Assert.assertTrue(true);
+            
+        }
+        else
+        {
+        	 Assert.assertTrue(false);
+        }
 
         // Switch window
         List<String> wh = new ArrayList<>(driver.getWindowHandles());
@@ -95,8 +107,8 @@ public class Lab_6_TestNG {
     @DataProvider(name = "productData")
     public Object[][] productData() {
         return new Object[][] {
-            { "A1 MEN WATCHES Men Sunglasses Combo" },
-            { "Fasttrack Watches for Men" }
+            { "A1 MEN WATCHES Men Sunglasses Combo" }
+            ,{ "Fasttrack Watches for Men" }
         };
     }
 }
