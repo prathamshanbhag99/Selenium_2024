@@ -6,24 +6,45 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class SnapdealPage_PageFactory {
+public class SnapdealPage_Excel {
     public static void main(String[] args) throws InterruptedException, IOException {
     	
     	
     	
-    	String projectpath=System.getProperty("user.dir");
-    	//System.out.println(projectpath);
-    	Properties prob=new Properties();
-    	InputStream input=new FileInputStream(projectpath+"\\snapdeal.properties");
-    	prob.load(input);
-    	String url=prob.getProperty("url");
-    	String product=prob.getProperty("product");
-    
+//    	String projectpath=System.getProperty("user.dir");
+//    	//System.out.println(projectpath);
+//    	Properties prob=new Properties();
+//    	InputStream input=new FileInputStream(projectpath+"\\snapdeal.properties");
+//    	prob.load(input);
+//    	String url=prob.getProperty("url");
+//    	String product=prob.getProperty("product");
+//    
 
+
+    	FileInputStream input=new FileInputStream("C:\\Users\\pratham.shanbhag\\eclipse-workspace\\Oct_Selenium\\snapdeal.xlsx");
+    	
+    	XSSFWorkbook workbook= new XSSFWorkbook(input);
+    	XSSFSheet sheet=workbook.getSheet("product");
+    	
+    	int noofrows=sheet.getPhysicalNumberOfRows();
+    	System.out.println("rows: "+noofrows);
+
+    	for(int i=0;i<noofrows;i++)
+    	{
+    	    String url=sheet.getRow(i).getCell(0).getStringCellValue();
+    	    String product=sheet.getRow(i).getCell(1).getStringCellValue();
+    	    
+
+    	    System.out.println("url: "+url);
+    	    System.out.println("Product: "+product);
+    	
+    	
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
         
@@ -74,4 +95,5 @@ public class SnapdealPage_PageFactory {
         // Close the driver
         driver.quit();
     }
+}
 }

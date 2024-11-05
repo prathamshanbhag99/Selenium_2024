@@ -25,7 +25,7 @@ public class Lab_6_PageFactory {
     @FindBy(xpath = "//*[@id=\"sdHeader\"]/div[4]/div[2]/div/div[2]/button/span")
     private WebElement searchButton;
 
-    @FindBy(xpath = "//*[@id=\"657803330506\"]/div[1]/a/picture/img")
+    @FindBy(xpath = "//*[@id=\"660206463981\"]/div[1]/a/picture/img")
     private WebElement specificProduct;
 
     @FindBy(xpath = "//*[@id=\"buyPriceBox\"]/div[2]/div[1]/div[1]/div[1]/span[1]/span")

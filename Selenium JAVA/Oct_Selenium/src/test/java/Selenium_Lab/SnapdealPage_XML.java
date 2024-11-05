@@ -1,28 +1,58 @@
 package Selenium_Lab;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.w3c.dom.Node;
+import org.w3c.dom.NodeList;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class SnapdealPage_PageFactory {
-    public static void main(String[] args) throws InterruptedException, IOException {
+public class SnapdealPage_XML {
+    public static void main(String[] args) throws InterruptedException, IOException, Exception {
     	
     	
     	
-    	String projectpath=System.getProperty("user.dir");
-    	//System.out.println(projectpath);
-    	Properties prob=new Properties();
-    	InputStream input=new FileInputStream(projectpath+"\\snapdeal.properties");
-    	prob.load(input);
-    	String url=prob.getProperty("url");
-    	String product=prob.getProperty("product");
+//    	String projectpath=System.getProperty("user.dir");
+//    	//System.out.println(projectpath);
+//    	Properties prob=new Properties();
+//    	InputStream input=new FileInputStream(projectpath+"\\snapdeal.properties");
+//    	prob.load(input);
+//    	String url=prob.getProperty("url");
+//    	String product=prob.getProperty("product");
     
+    	
+    	 // Specify the path to the XML file
+        File xmlfile = new File("C:\\Users\\pratham.shanbhag\\eclipse-workspace\\Oct_Selenium\\snapdeal.xml");
+
+        // Parse the XML file and load it into a Document
+        DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
+        DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
+        Document DBDoc = dBuilder.parse(xmlfile);
+
+        // Normalize the XML structure
+        DBDoc.getDocumentElement().normalize();
+
+        // Get the values of the "url", "username", and "password" elements
+        NodeList NL = DBDoc.getElementsByTagName("snapdeal");
+        Node n = NL.item(0);
+        Element ele = (Element) n;
+
+        String url = ele.getElementsByTagName("url").item(0).getTextContent();
+        String product = ele.getElementsByTagName("product").item(0).getTextContent();
+
 
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
