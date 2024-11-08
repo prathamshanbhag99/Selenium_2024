@@ -22,6 +22,36 @@
       <scope>test</scope>
     </dependency>
     
+ <dependencies>
+    <!-- ExtentReports dependency -->
+    <dependency>
+        <groupId>com.aventstack</groupId>
+        <artifactId>extentreports</artifactId>
+        <version>5.0.9</version> <!-- Or the latest version available -->
+    </dependency>
+
+    <!-- WebDriverManager for managing ChromeDriver -->
+    <dependency>
+        <groupId>io.github.bonigarcia</groupId>
+        <artifactId>webdrivermanager</artifactId>
+        <version>5.3.0</version> <!-- Or the latest version -->
+    </dependency>
+
+    <!-- Apache POI for reading Excel files -->
+    <dependency>
+        <groupId>org.apache.poi</groupId>
+        <artifactId>poi-ooxml</artifactId>
+        <version>5.2.3</version> <!-- Or the latest version -->
+    </dependency>
+
+    <!-- Apache Commons IO (used for file operations, e.g., for screenshot saving) -->
+    <dependency>
+        <groupId>commons-io</groupId>
+        <artifactId>commons-io</artifactId>
+        <version>2.11.0</version> <!-- Or the latest version -->
+    </dependency>
+</dependencies>
+
  
     <!-- Log4j API -->
     <dependency>
@@ -62,6 +92,24 @@
     <artifactId>log4j-core</artifactId>
     <version>2.17.2</version>
 </dependency>
+
+
+<dependencies>
+    <!-- Log4j2 Core -->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-core</artifactId>
+        <version>2.20.0</version> <!-- Latest version as of this writing -->
+    </dependency>
+
+    <!-- Log4j2 API -->
+    <dependency>
+        <groupId>org.apache.logging.log4j</groupId>
+        <artifactId>log4j-api</artifactId>
+        <version>2.20.0</version> <!-- Latest version as of this writing -->
+    </dependency>
+</dependencies>
+
 <dependency>
     <groupId>org.apache.poi</groupId>
     <artifactId>poi-ooxml</artifactId>

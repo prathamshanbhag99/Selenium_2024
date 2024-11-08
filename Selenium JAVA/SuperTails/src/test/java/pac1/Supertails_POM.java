@@ -1,53 +1,88 @@
 package pac1;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.time.Duration;
+import org.apache.commons.io.FileUtils;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openqa.selenium.By;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Supertails_POM {
-    public static void main(String[] args) throws InterruptedException {
-
+    public static void main(String[] args) throws InterruptedException, IOException {
+       
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
+
+        String excelFilePath = "C:\\Users\\pratham.shanbhag\\eclipse-workspace\\SuperTails\\SuperTails.xlsx";
+        FileInputStream input = new FileInputStream(excelFilePath);
+        XSSFWorkbook workbook = new XSSFWorkbook(input);
+        XSSFSheet sheet = workbook.getSheet("product");
+
+        int noofrows = sheet.getPhysicalNumberOfRows();
+        System.out.println("Rows: " + noofrows);
         
-        // Initialize SuperTailsPage
-        SuperTailsPage superTailsPage = new SuperTailsPage(driver);
+       SuperTailsPage superTailsPage = new SuperTailsPage(driver);
 
-        // Navigate to SuperTails website
-        driver.get("https://www.supertails.com/");
-        driver.manage().window().maximize();
+        for (int i = 0; i < noofrows; i++) {
+            String url = sheet.getRow(i).getCell(0).getStringCellValue();
+            String product = sheet.getRow(i).getCell(1).getStringCellValue();
+            System.out.println("URL: " + url);
+            System.out.println("Product: " + product);
 
-        // Search for a product
-        String productName = "Dog Food";
-        superTailsPage.searchForProduct(productName);
+            driver.get(url);
+            driver.manage().window().maximize();
 
-        // Click on the product
-        superTailsPage.clickOnProduct();
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
+            wait.until(ExpectedConditions.visibilityOfElementLocated(By.id("mainfrm")));
 
-        // Switch to new window (if needed)
-        superTailsPage.switchToNewWindow();
+            
+            superTailsPage.searchForProduct(product);
 
-        // Print URL and product details
-        System.out.println("URL: " + driver.getCurrentUrl());
-        System.out.println("Product Price: " + superTailsPage.getProductPrice());
-        System.out.println("Applicable Offer: " + superTailsPage.getApplicableOffer());
+           
+            superTailsPage.clickOnProduct();
 
-        // Scroll and print specifications
-        System.out.println("Specifications: " + superTailsPage.getSpecifications());
+           
+            superTailsPage.addToCart();
+            System.out.println("Item added to the cart!");
 
-        // Add to cart and print message
-        superTailsPage.addToCart();
-        System.out.println("Item added to the cart!");
+            // First Test Case
+            superTailsPage.openCart();
+            WebElement cartItem = driver.findElement(By.xpath("//*[@id=\"cartpage_form\"]/div/div[1]/div[2]/div[1]/div[1]/a"));
+            if (cartItem != null) {
+                System.out.println("Product found in cart: " + cartItem.getText());
+                File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
+                FileUtils.copyFile(scrFile, new File("cart_screenshot.png"));
+                superTailsPage.removeFromCart();
+                System.out.println("Product removed from cart.");
+            } else {
+                System.out.println("No product found in the cart.");
+            }
 
-        // Open cart and simulate user interaction
-        superTailsPage.openCart();
-        Thread.sleep(5000); // Sleep for demo purposes
+            // Second Test Case
+            superTailsPage.openCart();
+            WebElement emptyCartMessage = driver.findElement(By.xpath("//*[@id=\"shopify-section-template--16703737790702__main\"]/div[3]/header/div/p[1]"));
+            if (emptyCartMessage != null) {
+                System.out.println("Cart is empty: " + emptyCartMessage.getText());
+            } else {
+                System.out.println("Cart is not empty.");
+            }
 
-        // Remove from cart and print message
-        superTailsPage.removeFromCart();
-        System.out.println("Cart is empty");
+            
+            workbook.close();
+            input.close();
+        }
 
-        // Close the driver
         driver.quit();
     }
 }
