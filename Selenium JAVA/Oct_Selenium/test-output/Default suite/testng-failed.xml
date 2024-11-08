@@ -3,13 +3,11 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="Selenium_Lab.Lab_6_TestNG">
+      <class name="com.saucedemo.testcases.TC_Login_Excel_ExtentReport">
         <methods>
-          <include name="testProductSelectionAndCartModification" invocation-numbers="1"/>
-          <include name="tearDown"/>
-          <include name="setup"/>
+          <include name="loginTest" invocation-numbers="0 1"/>
         </methods>
-      </class> <!-- Selenium_Lab.Lab_6_TestNG -->
+      </class> <!-- com.saucedemo.testcases.TC_Login_Excel_ExtentReport -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

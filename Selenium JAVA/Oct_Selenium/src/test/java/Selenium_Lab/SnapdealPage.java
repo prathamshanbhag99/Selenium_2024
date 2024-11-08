@@ -28,31 +28,36 @@ public class SnapdealPage {
     }
 
     // Method to switch to the new window
-    public void switchToNewWindow() {
+    public void switchToNewWindow() 
+    {
         List<String> wh = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(wh.get(1));
     }
 
     // Method to get the product price
-    public String getProductPrice() {
+    public String getProductPrice()
+    {
         WebElement price = driver.findElement(By.xpath("/html/body/div[11]/section/div[1]/div[2]/div/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/span[1]/span"));
         return price.getText();
     }
 
     // Method to get the applicable offer
-    public String getApplicableOffer() {
+    public String getApplicableOffer() 
+    {
         WebElement offer = driver.findElement(By.xpath("//*[@id=\"buyPriceBox\"]/div[2]/div[2]/div[2]/div[1]/div[1]/div"));
         return offer.getText();
     }
 
     // Method to scroll down the page
-    public void scrollDown() {
+    public void scrollDown()
+    {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("window.scrollBy(0,50)");
     }
 
     // Method to get product specifications
-    public String getSpecifications() {
+    public String getSpecifications() 
+    {
         WebElement spcs = driver.findElement(By.xpath("//*[@id=\"id-tab-container\"]/div/div[1]/div[2]"));
         return spcs.getText();
     }

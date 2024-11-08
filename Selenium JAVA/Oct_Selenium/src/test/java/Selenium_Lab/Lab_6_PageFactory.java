@@ -9,7 +9,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class Lab_6_PageFactory {
+public class Lab_6_PageFactory{
     private WebDriver driver;
 
     // Constructor to initialize WebDriver and PageFactory elements
@@ -53,18 +53,21 @@ public class Lab_6_PageFactory {
     private WebElement removeFromCartButton;
 
     // Method to search for a product
-    public void searchForProduct(String productName) {
+    public void searchForProduct(String productName) 
+    {
         searchInput.sendKeys(productName);
         searchButton.click();
     }
 
     // Method to click on a specific product
-    public void clickOnProduct() {
+    public void clickOnProduct() 
+    {
         specificProduct.click();
     }
 
     // Method to switch to the new window
-    public void switchToNewWindow() {
+    public void switchToNewWindow()
+    {
         List<String> wh = new ArrayList<>(driver.getWindowHandles());
         driver.switchTo().window(wh.get(1));
     }
