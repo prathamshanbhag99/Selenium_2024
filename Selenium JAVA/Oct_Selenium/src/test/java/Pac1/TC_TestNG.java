@@ -1,21 +1,11 @@
 package Pac1;
 
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.JavascriptExecutor;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
-import org.testng.annotations.AfterSuite;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 public class TC_TestNG {
 
@@ -31,7 +21,7 @@ public class TC_TestNG {
         JavascriptExecutor js1 = (JavascriptExecutor) driver;
         js1.executeScript("window.scrollBy(0,100)");
         Thread.sleep(2000);
-        
+
         driver.findElement(By.xpath("//button[normalize-space()='Login']")).click();
 
         // Pausing for demonstration purposes
@@ -65,10 +55,10 @@ public class TC_TestNG {
 
     @DataProvider
     public Object[][] dp() {
-        return new Object[][] {
-            new Object[] { "prathamshanbhag99_111@gmail.com", "Pratham@2002" },
-            new Object[] { "prathamshanbhag99_11@gmail.com", "Pratham@2002" }
-            
+        return new Object[][]{
+                new Object[]{"prathamshanbhag99_111@gmail.com", "Pratham@2002"},
+                new Object[]{"prathamshanbhag99_11@gmail.com", "Pratham@2002"}
+
         };
     }
 

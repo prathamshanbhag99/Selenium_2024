@@ -3,9 +3,9 @@ package com.saucedemo.testcases;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+import com.saucedemo.pageobjects.Login_PageFactory;
 import com.saucedemo.utilities.ReadExcelData;
 import com.saucedemo.utilities.Readconfig;
-import com.saucedemo.pageobjects.Login_PageFactory;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.OutputType;
@@ -14,6 +14,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;

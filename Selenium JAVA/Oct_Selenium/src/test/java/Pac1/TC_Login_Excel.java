@@ -1,22 +1,14 @@
 package Pac1;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
-
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 
@@ -44,50 +36,49 @@ public class TC_Login_Excel {
 //        String uname = ele.getElementsByTagName("username").item(0).getTextContent();
 //        String pwod = ele.getElementsByTagName("password").item(0).getTextContent();
 
-    	
-    	FileInputStream input=new FileInputStream("C:\\Users\\pratham.shanbhag\\eclipse-workspace\\Oct_Selenium\\login.xlsx");
-    	
-    	XSSFWorkbook workbook= new XSSFWorkbook(input);
-    	XSSFSheet sheet=workbook.getSheet("login");
-    	
-    	int noofrows=sheet.getPhysicalNumberOfRows();
-    	System.out.println("rows: "+noofrows);
 
-    	for(int i=0;i<noofrows;i++)
-    	{
-    	    String url=sheet.getRow(i).getCell(0).getStringCellValue();
-    	    String uname=sheet.getRow(i).getCell(1).getStringCellValue();
-    	    String pwod=sheet.getRow(i).getCell(2).getStringCellValue();
+        FileInputStream input = new FileInputStream("C:\\Users\\pratham.shanbhag\\eclipse-workspace\\Oct_Selenium\\login.xlsx");
 
-    	    System.out.println("username: "+uname);
-    	    System.out.println("password: "+pwod);
-    	
-    	
-        // Setup ChromeDriver
-        WebDriverManager.chromedriver().setup();
+        XSSFWorkbook workbook = new XSSFWorkbook(input);
+        XSSFSheet sheet = workbook.getSheet("login");
 
-        // Initialize the Chrome browser
-        WebDriver driver = new ChromeDriver();
+        int noofrows = sheet.getPhysicalNumberOfRows();
+        System.out.println("rows: " + noofrows);
 
-        // Use the PageFactory to initialize elements
-        Login_PageFactory obj = PageFactory.initElements(driver, Login_PageFactory.class);
+        for (int i = 0; i < noofrows; i++) {
+            String url = sheet.getRow(i).getCell(0).getStringCellValue();
+            String uname = sheet.getRow(i).getCell(1).getStringCellValue();
+            String pwod = sheet.getRow(i).getCell(2).getStringCellValue();
 
-        // Navigate to the webpage
-        driver.get(url);
+            System.out.println("username: " + uname);
+            System.out.println("password: " + pwod);
 
-        driver.manage().window().maximize();
-        Thread.sleep(2000); // Wait for the page to load
 
-        // Perform login steps
-        obj.enterusername(uname);
-        Thread.sleep(2000);
-        obj.enterpassword(pwod);
-        Thread.sleep(2000);
-        obj.Loginbtn();
+            // Setup ChromeDriver
+            WebDriverManager.chromedriver().setup();
 
-        // Close the browser
-        Thread.sleep(2000); // Wait to observe login
-        driver.quit();
+            // Initialize the Chrome browser
+            WebDriver driver = new ChromeDriver();
+
+            // Use the PageFactory to initialize elements
+            Login_PageFactory obj = PageFactory.initElements(driver, Login_PageFactory.class);
+
+            // Navigate to the webpage
+            driver.get(url);
+
+            driver.manage().window().maximize();
+            Thread.sleep(2000); // Wait for the page to load
+
+            // Perform login steps
+            obj.enterusername(uname);
+            Thread.sleep(2000);
+            obj.enterpassword(pwod);
+            Thread.sleep(2000);
+            obj.Loginbtn();
+
+            // Close the browser
+            Thread.sleep(2000); // Wait to observe login
+            driver.quit();
+        }
     }
-}
 }

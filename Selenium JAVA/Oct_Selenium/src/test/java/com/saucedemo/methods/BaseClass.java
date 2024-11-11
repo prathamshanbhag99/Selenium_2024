@@ -1,10 +1,10 @@
 package com.saucedemo.methods;
 
 import com.saucedemo.utilities.Readconfig;
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class BaseClass {
     public WebDriver driver;
@@ -20,7 +20,7 @@ public class BaseClass {
             WebDriverManager.firefoxdriver().setup();
             driver = new FirefoxDriver();
         }
-        
+
         driver.manage().window().maximize();
         return driver;
     }

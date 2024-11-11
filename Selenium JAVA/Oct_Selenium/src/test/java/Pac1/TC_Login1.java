@@ -1,14 +1,13 @@
 package Pac1;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-
-import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class TC_Login1 {
 
     public static void main(String[] args) throws InterruptedException {
-    
+
         WebDriverManager.chromedriver().setup();
         WebDriver driver = new ChromeDriver();
 

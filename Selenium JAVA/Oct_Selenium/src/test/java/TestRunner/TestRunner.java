@@ -1,18 +1,18 @@
 package TestRunner;
 
+import io.cucumber.junit.Cucumber;
+import io.cucumber.junit.CucumberOptions;
 import org.junit.runner.RunWith;
-
-import io.cucumber.junit.*;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-		features= {"C:\\Users\\pratham.shanbhag\\eclipse-workspace\\Oct_Selenium\\src\\test\\java\\features\\login.feature"},
-		glue= {"StepDefination"},
-		plugin= {"pretty"},
-		monochrome=true
-		)
-public class TestRunner{
-	
+        features = {"C:\\Users\\pratham.shanbhag\\eclipse-workspace\\Oct_Selenium\\src\\test\\java\\features2\\snapdeal.feature"},
+        glue = {"StepDefination2"},
+        plugin = {"pretty"},
+        monochrome = true
+)
+public class TestRunner {
+
 }
 
 
