@@ -103,7 +103,7 @@ public class SnapdealPage_Excel_ExtentReport {
 			// Add to cart and print message
 			snapdealPage.addToCart();
 			System.out.println("Item Added to the cart!");
-
+			
 			// Open cart and increase quantity
 			snapdealPage.openCart();
 

@@ -8,10 +8,8 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 public class TC_Login1 {
 
     public static void main(String[] args) throws InterruptedException {
-        // Setup ChromeDriver
+    
         WebDriverManager.chromedriver().setup();
-
-        // Initialize the Chrome browser
         WebDriver driver = new ChromeDriver();
 
         // Use the correct constructor
